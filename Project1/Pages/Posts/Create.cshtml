@@ -1,0 +1,57 @@
+﻿@page
+@model Project1.Pages.Posts.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Post</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Post.Title" class="control-label"></label>
+                <input asp-for="Post.Title" class="form-control" />
+                <span asp-validation-for="Post.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Post.PostText" class="control-label"></label>
+                <input asp-for="Post.PostText" class="form-control" />
+                <span asp-validation-for="Post.PostText" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Post.DatePublished" class="control-label"></label>
+                <input asp-for="Post.DatePublished" class="form-control" />
+                <span asp-validation-for="Post.DatePublished" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Post.AuthorId" class="control-label"></label>
+                <select asp-for="Post.AuthorId" class="form-control" asp-items="Model.AuthorsSelectList"></select>
+                <p class="small">Author missing? <a asp-page="/Authors/Create">Create Author</a></p>
+            </div>
+            <!-- Multiple select to categories-->
+            <div class="form-group">
+                <label asp-for="SelectedTagIDs" class="control-label">Categories</label>
+                <select multiple asp-for="SelectedTagIDs" class="form-control" asp-items="Model.TagsSelectList"></select>
+                <p class="small">Tag missing? <a asp-page="/Tags/Create">Create Tag</a></p>
+
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

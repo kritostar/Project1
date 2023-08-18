@@ -1,0 +1,35 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Blog Page</h1><br>
+
+    <div class="row">
+        <div class="col-md-4">
+            <h3>Posts</h3>
+            <ul>
+                <li><a class="nav-link text-dark" asp-page="/Posts/Index">List Posts</a></li>
+                <li><a class="nav-link text-dark" asp-page="/Posts/Create">Create Posts</a></li>
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <h3>Authors</h3>
+            <ul>
+                <li><a class="nav-link text-dark" asp-page="/Authors/Index">List Authors</a></li>
+                <li><a class="nav-link text-dark" asp-page="/Authors/Create">Create Authors</a></li>
+            </ul>
+
+        </div>
+        <div class="col-md-4">
+            <h3>Tags</h3>
+            <ul>
+                <li><a class="nav-link text-dark" asp-page="/Tags/Index">List Tags</a></li>
+                <li><a class="nav-link text-dark" asp-page="/Tags/Create">Create Tags</a></li>
+            </ul>
+
+        </div>
+    </div>
+</div>
